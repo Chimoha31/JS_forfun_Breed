@@ -35,9 +35,26 @@ const populateDogSelect = (breeds) => {
   }, false);
 }
 
+
+// dropdownから犬種を選択し、情報を表示
+const putDogsImage = (imageUrl) => {
+  document.querySelector("#dogs-image").setAttribute('src', imageUrl);
+}
+
+const getDogByBreed = async (breedId) => {
+  const data = await fetch(`https://api.TheDogAPI.com/v1/images/search?include_breed=1&breed_id=` + breedId);
+  const [breed] = await data.json();
+  console.log(breed);
+  
+  // const {url: imageUrl, breeds} = breed;
+  putDogsImage(breed.url);
+}
+
 const changeDogs = () => {
   console.log(event.target.value);
+  getDogByBreed(event.target.value);
 }
+
 
 fetchDogBreeds();
 

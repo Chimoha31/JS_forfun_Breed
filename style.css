@@ -23,7 +23,12 @@ body {
   width: 320px;
 }
 
-/* .breed-select option {
-  height: 400px;
-  overflow: scroll;
-} */
+#dogs-image {
+  margin: 16px auto;
+  object-fit: contain;
+  width: 25%;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgb(61, 61, 61);
+
+}
